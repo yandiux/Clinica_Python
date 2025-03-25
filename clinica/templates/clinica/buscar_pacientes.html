@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buscar Pacientes</title>
+  </head>
+  <body>
+    <h1>Buscar Pacientes</h1>
+    <form method="GET">
+      <input type="text" name="q" placeholder="Buscar por nombre" />
+      <button type="submit">Buscar</button>
+    </form>
+    {% if pacientes %}
+    <ul>
+      {% for paciente in pacientes %}
+      <li>
+        {{ paciente.nombre }} {{ paciente.apellido }} -
+        <a href="#">Ver Historial</a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>No se encontraron pacientes.</p>
+    {% endif %}
+  </body>
+</html>
